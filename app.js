@@ -1,4 +1,5 @@
 const submitButton = document.querySelector('#submitButton')
+const taskArrayList = []
 
 const errorMessage = () => {
 	Swal.fire({
@@ -8,14 +9,41 @@ const errorMessage = () => {
 	})
 }
 
-const addTask = () => {
-	cons ul = document.querySelector('#tasks')
+const addToList = () => {
+	const taskList = document.querySelector('#taskList')
+	const listString = taskArrayList.map( task => {
+		return `
+			<li class="task">
+	        	${task.description}
+	        </li>
+		`
+	}).join('')
+
+	console.log(listString)
+
+	taskList.innerHTML = listString
+}
+
+const addTask = (description) => {
+	const selectDay = document.querySelector('#selectDay')
+	const selectHour = document.querySelector('#selectHour')
+
+	let newTask = {
+		description: description,
+		status: 'waitting',
+		dueDay: selectDay.value,
+		dueTime: selectHour.value
+	}
+	taskArrayList.push(newTask)
+	
+	addToList()
+
 }
 
 submitButton.addEventListener('click', e => {
-	const task = document.querySelector('#task')
+	const taskDescription = document.querySelector('#taskDescription')
 
-	const newTask = task === '' ? addTask() : errorMessage()
+	const newTaskValue = taskDescription.value === '' ? errorMessage() : addTask(taskDescription.value)
 
 	e.preventDefault()
 })

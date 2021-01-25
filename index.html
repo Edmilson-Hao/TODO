@@ -27,13 +27,35 @@
         <div id="today"></div>
         
         <form id="addNewTask">
-            <h2 id="newTask">Nova Tarefa</h2>    
-            <input id="task" type="text" name="task" placeholder="Nome da Tarefa">
-            <button id="submitButton">Adicionar</button>
+            <h2 id="newTask">Nova Tarefa</h2>
+
+            <div>
+                <input id="taskDescription" type="text" name="task" placeholder="Nome da Tarefa">
+                <button id="submitButton">Adicionar</button>
+            </div>
+
+            <div>
+                <input type="date" id="selectDay" name="date" required>
+                <input type="time" id="selectHour" name="selectHour" required>
+            </div>
+            
         </form>
 
-        <ul id="tasks"></ul>
+        <ul id="taskList"></ul>
     </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script defer src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script defer src="https://www.gstatic.com/firebasejs/8.2.4/firebase-analytics.js"></script>
+    
+    <script defer src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script defer src="./firebase.js"></script>
 
     <script src="./app.js"></script>
 </body>
