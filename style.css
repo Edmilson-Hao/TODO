@@ -19,7 +19,6 @@ body {
 	width: 50vw;
 	margin: 1rem auto;
 	justify-content: center;
-
 	flex-direction: column;
 	border: 1px solid black;
 }
@@ -85,9 +84,20 @@ body {
 	text-align: center;
 }
 
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+form > * {
+	margin-bottom: .5rem;
+}
+
 @media (hover: none) and (pointer: coarse) {
+
 	#app-container {
 		position: absolute;
-		width: 100vw;
+		display: block;
+		width: 100%;
 	}
 }
