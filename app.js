@@ -1,3 +1,12 @@
+/*====================Starting-Styles====================*/
+const adjustWidth = () => {
+	if (window.innerWidth < window.innerHeight) {
+		alert('Hail')
+	}
+}
+/*====================Ending-Styles====================*/
+
+
 const submitButton = document.querySelector('#submitButton')
 const taskArrayList = []
 

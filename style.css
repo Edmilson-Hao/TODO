@@ -92,12 +92,3 @@ form {
 form > * {
 	margin-bottom: .5rem;
 }
-
-@media (hover: none) and (pointer: coarse) {
-
-	#app-container {
-		position: absolute;
-		display: block;
-		width: 100%;
-	}
-}
