@@ -13,13 +13,16 @@ addEventListener('load', () => {
 			child.style.width = '100%'
 
 		})
-	}	
+	}
 })
 /*====================Ending-Styles====================*/
 
 
 const submitButton = document.querySelector('#submitButton')
 const taskArrayList = []
+const taskDescription = document.querySelector('#taskDescription')
+const selectDay = document.querySelector('#selectDay')
+const selectHour = document.querySelector('#selectHour')
 
 const errorMessage = () => {
 	Swal.fire({
@@ -39,31 +42,41 @@ const addToList = () => {
 		`
 	}).join('')
 
-	console.log(listString)
-
 	taskList.innerHTML = listString
 }
 
-const addTask = (description) => {
-	const selectDay = document.querySelector('#selectDay')
-	const selectHour = document.querySelector('#selectHour')
+const addTask = () => {
 
 	let newTask = {
-		description: description,
+		description: taskDescription.value,
 		status: 'waitting',
 		dueDay: selectDay.value,
-		dueTime: selectHour.value
+		dueHour: selectHour.value
+
 	}
 	taskArrayList.push(newTask)
+
+	taskDescription.value = ''
+	selectDay.value = ''
+	selectHour.value = ''
 	
 	addToList()
 
 }
 
+/*
+const taskDescription = document.querySelector('#taskDescription')
+const selectDay = document.querySelector('#selectDay')
+const selectHour = document.querySelector('#selectHour')
+*/
+
+const checkInputs = () => {
+	if(taskDescription.value === "" || selectDay.value === '' || selectHour.value === '') return false
+
+	return true
+}
+
 submitButton.addEventListener('click', e => {
-	const taskDescription = document.querySelector('#taskDescription')
-
-	const newTaskValue = taskDescription.value === '' ? errorMessage() : addTask(taskDescription.value)
-
+	const newTaskValue = checkInputs() ? addTask() : errorMessage()
 	e.preventDefault()
 })

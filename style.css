@@ -49,6 +49,10 @@ body {
 	align-content: space-around;
 }
 
+#addNewTask > * {
+	width: 100%;
+}
+
 #header {
 	display: flex;
 	justify-content: space-between;
