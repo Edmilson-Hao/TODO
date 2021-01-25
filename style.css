@@ -85,10 +85,8 @@ body {
 	text-align: center;
 }
 
-/* smartphones, touchscreens */
-@media and (pointer: coarse) {
-    /* ... */
- 	#app-container {
- 		width: 100vw;
- 	}   
+@media (hover: none) and (pointer: coarse) {
+	#app-container {
+		width: 100%;
+	}
 }
