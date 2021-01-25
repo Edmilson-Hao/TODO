@@ -86,7 +86,7 @@ body {
 }
 
 /* smartphones, touchscreens */
-@media (hover: none) and (pointer: coarse) {
+@media and (pointer: coarse) {
     /* ... */
  	#app-container {
  		width: 100vw;
