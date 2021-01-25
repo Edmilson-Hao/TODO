@@ -6,6 +6,13 @@ addEventListener('load', () => {
 		appContainer.style.position = 'absolute'
 		appContainer.style.width = '100%'
 		appContainer.style.padding = '0'
+
+		const formChildren = Array.from(document.querySelector("#addNewTask").children)
+
+		formChildren.forEach( child => {
+			child.style.width = '100%'
+
+		})
 	}	
 })
 /*====================Ending-Styles====================*/
