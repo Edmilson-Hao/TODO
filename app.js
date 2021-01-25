@@ -1,9 +1,13 @@
 /*====================Starting-Styles====================*/
-const adjustWidth = () => {
-	if (window.innerWidth < window.innerHeight) {
-		alert('Hail')
-	}
-}
+addEventListener('load', () => {
+	if (screen.width < screen.height) {
+		const appContainer = document.querySelector('#app-container')
+		appContainer.style.margin = '0'
+		appContainer.style.position = 'absolute'
+		appContainer.style.width = '100%'
+		appContainer.style.padding = '0'
+	}	
+})
 /*====================Ending-Styles====================*/
 
 

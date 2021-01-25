@@ -16,7 +16,6 @@ body {
 
 #app-container {
 	display: flex;
-	width: 50vw;
 	margin: 1rem auto;
 	justify-content: center;
 	flex-direction: column;
