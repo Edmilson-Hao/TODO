@@ -87,6 +87,7 @@ body {
 
 @media (hover: none) and (pointer: coarse) {
 	#app-container {
-		width: 100%;
+		position: absolute;
+		width: 100vw;
 	}
 }
