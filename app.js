@@ -35,9 +35,12 @@ const errorMessage = () => {
 const addToList = () => {
 	const taskList = document.querySelector('#taskList')
 	const listString = taskArrayList.map( task => {
+		const randomId = 'task'+Math.floor(Math.random()*1000000)
 		return `
-			<li class="task">
-	        	${task.description}
+			<li class="task" id='${randomId}'>
+				<input type="checkbox">
+	        	<span>${task.description}</span>
+	        	<i class="far fa-trash-alt" onclick='removeTask(${randomId})'></i>
 	        </li>
 		`
 	}).join('')
@@ -49,11 +52,10 @@ const addTask = () => {
 
 	let newTask = {
 		description: taskDescription.value,
-		status: 'waitting',
 		dueDay: selectDay.value,
-		dueHour: selectHour.value
-
+		dueHour: selectHour.value,
 	}
+
 	taskArrayList.push(newTask)
 
 	taskDescription.value = ''
@@ -63,12 +65,6 @@ const addTask = () => {
 	addToList()
 
 }
-
-/*
-const taskDescription = document.querySelector('#taskDescription')
-const selectDay = document.querySelector('#selectDay')
-const selectHour = document.querySelector('#selectHour')
-*/
 
 const checkInputs = () => {
 	if(taskDescription.value === "" || selectDay.value === '' || selectHour.value === '') return false
@@ -80,3 +76,7 @@ submitButton.addEventListener('click', e => {
 	const newTaskValue = checkInputs() ? addTask() : errorMessage()
 	e.preventDefault()
 })
+
+const removeTask = id => {
+	id.remove()
+}
